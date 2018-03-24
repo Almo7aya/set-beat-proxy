@@ -3,10 +3,15 @@ const proxy = require('http-proxy-middleware');
 
 const port = process.env.PORT || 3000;
 
-const setBeatAPIUrl = 'http://api-beta.setbeat.com/v1/';
+const setBeatAPIUrl = 'https://api-beta.setbeat.com';
 
-app.use('/', proxy({
-    target: setBeatAPIUrl
+app.get('/', (req, res) => {
+    res.end('working');
+});
+
+app.use('/v1', proxy({
+    target: setBeatAPIUrl,
+    changeOrigin: true
 }));
 
 
