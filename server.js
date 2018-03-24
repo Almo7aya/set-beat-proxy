@@ -17,4 +17,4 @@ app.use('/v1', proxy({
 
 app.use(cros());
 
-app.listen(port, () => console.log('the server is running' + port));
+app.listen(port, () => console.log('the server is running at port =>' + port));
