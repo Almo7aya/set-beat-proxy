@@ -1,5 +1,6 @@
 const app = require('express')();
 const proxy = require('http-proxy-middleware');
+const cros = require('cors');
 
 const port = process.env.PORT || 3000;
 
@@ -14,5 +15,6 @@ app.use('/v1', proxy({
     changeOrigin: true
 }));
 
+app.use(cros());
 
 app.listen(port, () => console.log('the server is running' + port));
