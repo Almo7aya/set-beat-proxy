@@ -4,15 +4,11 @@ const cros = require('cors');
 
 const port = process.env.PORT || 3000;
 
-const setBeatAPIUrl = 'https://api-beta.setbeat.com';
+const setBeatAPIUrl = 'https://api-beta.setbeat.com/v1/';
 
 app.use(cros());
 
-app.get('/', (req, res) => {
-    res.end('working');
-});
-
-app.use('/v1', proxy({
+app.use('/', proxy({
     target: setBeatAPIUrl,
     changeOrigin: true
 }));
